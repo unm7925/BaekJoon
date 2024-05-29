@@ -4,11 +4,13 @@ using namespace std;
 
 int main()
 {
-    char a;
+    string a;
 
     cin >> a;
 
-    cout << (int)a;
+    int b = a.length();
+
+    cout << b;
 
     return 0;
 }
