@@ -1,21 +1,20 @@
 #include <iostream>
-#include <string>
 
 using namespace std;
+long long Math(long long a, long long b)
+{
+    long long number = a * a - b * b;
+
+    return number;
+}
 
 int main()
 {
-    int t;
-    string a;
-    cin >> t;
+    long long a, b;
 
-    while (t--)
-    {
-        cin >> a;
+    cin >> a >> b;
 
-        int length = a.length();
-        cout << a[0] << a[length - 1] << "\n";
-    }
+    cout << Math(a, b);
 
     return 0;
 }
