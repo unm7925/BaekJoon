@@ -7,10 +7,19 @@ int main()
     string a;
 
     cin >> a;
+    int length = a.length();
 
-    int b = a.length();
-
-    cout << b;
-
+    for (int i = 0; i < length; i++)
+    {
+        if (a[i] > 95)
+        {
+            a[i] -= 32;
+        }
+        else
+        {
+            a[i] += 32;
+        }
+    }
+    cout << a;
     return 0;
 }
