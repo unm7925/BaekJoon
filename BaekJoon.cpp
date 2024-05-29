@@ -1,20 +1,19 @@
 #include <iostream>
 
 using namespace std;
-long long Math(long long a, long long b)
-{
-    long long number = a * a - b * b;
-
-    return number;
-}
 
 int main()
 {
-    long long a, b;
+    int a[5];
+    int total = 0;
 
-    cin >> a >> b;
+    for (int i = 0; i < 5; i++)
+    {
+        cin >> a[i];
+        int add = a[i] * a[i];
+        total += add;
+    }
 
-    cout << Math(a, b);
-
+    cout << total % 10;
     return 0;
 }
