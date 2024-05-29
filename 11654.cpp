@@ -4,22 +4,48 @@ using namespace std;
 
 int main()
 {
-    string a;
+    char standard;
 
-    cin >> a;
-    int length = a.length();
+    char etc;
 
-    for (int i = 0; i < length; i++)
+    cout << fixed;
+    cout.precision(1);
+
+    float score = 0.0f;
+
+    cin >> standard >> etc;
+
+    if (standard == 'A')
     {
-        if (a[i] > 95)
-        {
-            a[i] -= 32;
-        }
-        else
-        {
-            a[i] += 32;
-        }
+        score = 4.0f;
     }
-    cout << a;
+    else if (standard == 'B')
+    {
+        score = 3.0f;
+    }
+    else if (standard == 'C')
+    {
+        score = 2.0f;
+    }
+    else if (standard == 'D')
+    {
+        score = 1.0f;
+    }
+    else if (standard == 'F')
+    {
+        score = 0.0f;
+    }
+
+    if (etc == '+')
+    {
+        score += 0.3f;
+    }
+    else if (etc == '-')
+    {
+        score -= 0.3f;
+    }
+
+    cout << score;
+
     return 0;
 }
