@@ -2,25 +2,24 @@
 
 using namespace std;
 
-long long Math(long long a, long long b)
-{
-    long long total = ((a * (a + 1)) / 2) - ((b * (b + 1)) / 2) + b;
-
-    return total;
-}
-
 int main()
 {
-    long long a, b;
-    cin >> a >> b;
-    if (a > b)
+    int a;
+
+    int total = 0;
+
+    cin >> a;
+
+    char *b = new char[a];
+
+    cin >> b;
+
+    for (int i = 0; i < a; i++)
     {
-        cout << Math(a, b);
+        total += (b[i] - '0');
     }
-    else
-    {
-        cout << Math(b, a);
-    }
+
+    cout << total;
 
     return 0;
 }
