@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <string>
 using namespace std;
 
 int main()
@@ -24,7 +24,7 @@ int main()
 
     cin >> testCount;
 
-    for (int i = 0; i < testCount; i++)
+    for (int i = 0; i <= testCount; i++)
     {
         getline(cin, quiz);
 
@@ -44,7 +44,10 @@ int main()
                     continuity = 0;
                 }
             }
+            continuity = 0;
+
             cout << totalCount << "\n";
+            totalCount = 0;
         }
     }
 
