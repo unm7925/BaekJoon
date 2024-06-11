@@ -32,9 +32,9 @@ int main()
     for (int i = 0; i < 10; i++)
     {
         compareN = 0;
-        for (int j = 0; j < 10; j++)
+        for (int j = 0; i + j + 1 < 10; j++)
         {
-            if (arr[i] == arr[j])
+            if (arr[i] == arr[i + j + 1])
             {
                 compareN++;
             }
