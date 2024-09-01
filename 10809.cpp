@@ -1,36 +1,37 @@
 #include <iostream>
+#include <cstring>
 
 using namespace std;
 
 int main()
 {
-    string sentence;
+    char sentence[101] = {};
 
     cin >> sentence;
 
-    int length = sentence.length();
+    int length = strlen(sentence);
 
-    for (int i = 97; i <= 122; i++)
+    for (int j = 97; j <= 122; j++)
     {
         int count = 0;
-        for (int j = 0; j < length; j++)
-        {
 
-            if ((int)sentence[j] == i)
+        for (int i = 0; i < length; i++)
+        {
+            count++;
+
+            if ((int)sentence[i] == j)
             {
-                cout << j + 1;
+                cout << i;
                 break;
             }
-            else
-                count++;
 
-            if (count == 26)
+            if (count == length)
             {
                 cout << "-1";
             }
         }
-
-        cout << " ";
+        if (j != 122)
+            cout << " ";
     }
     return 0;
 }
