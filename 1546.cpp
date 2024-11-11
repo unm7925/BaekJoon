@@ -4,37 +4,41 @@ using namespace std;
 
 int main()
 {
-    int count;
+    double totalScore = 0;
+    int testNum = 0;
+    double score = 0;
 
-    cin >> count;
+    cin >> testNum;
+    const int max = 1000;
 
-    int array[1000] = {0};
-
-    for (int i = 0; i < count; i++)
+    if (testNum <= max)
     {
-        cin >> array[i];
-    }
+        int *arr = new int[testNum];
 
-    int best = array[0];
-
-    for (int i = 0; i < count; i++)
-    {
-        if (i + 1 <= count)
+        for (int count = 0; count < testNum; count++)
         {
-            if (array[i] < array[i + 1])
+            cin >> score;
+            arr[count] = score;
+        }
+
+        double maxScore = arr[0];
+        for (int i = 1; i < testNum; i++)
+        {
+            if (arr[i] > maxScore)
             {
-                best = array[i + 1];
+                maxScore = arr[i];
             }
         }
+
+        for (int i = 0; i < testNum; i++)
+        {
+            totalScore += (arr[i] / maxScore * 100);
+        }
+
+        cout << totalScore / testNum;
+
+        delete[] arr; // 배열 메모리 해제
     }
 
-    float arv = 0;
-
-    for (int i = 0; i < count; i++)
-    {
-        arv += (array[i] * 100.0f / best);
-    }
-
-    cout << arv / count;
     return 0;
 }
