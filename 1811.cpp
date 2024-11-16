@@ -8,15 +8,13 @@ bool compare(string a, string b)
 {
     if (a.length() == b.length())
     {
-        int count = 0;
         for (int i = 0; i < a.length(); i++)
         {
-            return (int)a[i] < (int)b[i];
+            if (a[i] < b[i] || a[i] > b[i])
+            {
+                return a[i] < b[i];
+            }
         }
-    }
-    else
-    {
-        return a.size() < b.size();
     }
 
     return a.size() < b.size();
@@ -29,11 +27,7 @@ int main()
 
     vector<string> vector1;
 
-    int case1 = t;
-    int case2 = 0;
-    int case3 = 0;
-
-    while (case1--)
+    while (t--)
     {
         string centence;
         cin >> centence;
