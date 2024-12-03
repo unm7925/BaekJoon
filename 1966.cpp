@@ -1,20 +1,19 @@
+#include <algorithm>
 #include <iostream>
-#include <vector>
 #include <queue>
 #include <utility>
-#include <algorithm>
+#include <vector>
 
 using namespace std;
 
-
 int main()
 {
-    int t; 
+    int t;
     cin >> t;
 
     while (t--)
     {
-        queue<pair<int,int>> que;
+        queue<pair<int, int>> que;
         priority_queue<int> pq;
 
         int count, sequnce;
@@ -26,18 +25,18 @@ int main()
         {
             int que_in;
             cin >> que_in;
-            que.push({ que_in,i });
+            que.push({que_in, i});
             pq.push(que_in);
         }
 
-        while(true)
+        while (true)
         {
             int queF = que.front().first;
             int queS = que.front().second;
             if (queF != pq.top())
             {
                 que.pop();
-                que.push({ queF, queS });
+                que.push({queF, queS});
             }
             else
             {
