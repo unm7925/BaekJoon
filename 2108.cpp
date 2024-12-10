@@ -10,20 +10,21 @@ int main()
     int t;            // 홀 수
     double ave = 0.0; // 평균
     int middle;       // 그냥 t/2 하면 중앙일듯. 인덱스가 0부터니까
-    int max = -4001;
-    int min = 4001;
 
     deque<int> deq;
+
     int array_p[4001] = {0};
     int array_m[4001] = {0};
     cin >> t;
+
+    middle = t / 2;
 
     for (int i = 0; i < t; i++)
     {
         int pushN;
         cin >> pushN;
 
-        ave += pushN;
+        ave = ave + pushN;
 
         deq.push_back(pushN);
         if (pushN >= 0)
@@ -32,23 +33,21 @@ int main()
         }
         else
         {
-            pushN = pushN * (-1);
+            pushN = -pushN;
             array_m[pushN]++;
         }
     }
-    middle = t / 2;
-    ave = floor(ave / t + 0.5);
-    if (-1 < ave && ave < 1)
+    ave = round(ave / t);
+    if (ave == -0)
     {
-        cout << "0\n";
+        ave = 0;
     }
-    else
-        cout << ave << "\n"; // 평균 및 중앙값
+    cout << ave << "\n"; // 평균 및 중앙값
     int compare;
     if (!deq.empty())
     {
-        int compare_p = *max_element(array_p, array_p + 4000);
-        int compare_m = *max_element(array_m, array_m + 4000);
+        int compare_p = *max_element(array_p, array_p + 4001);
+        int compare_m = *max_element(array_m, array_m + 4001);
         if (compare_p > compare_m)
         {
             compare = compare_p;
@@ -73,6 +72,8 @@ int main()
     }
 
     sort(num.begin(), num.end());
+    num.erase(unique(num.begin(), num.end()), num.end());
+
     if (deq.size() == 1)
     {
         cout << deq[0] << "\n";
@@ -91,7 +92,7 @@ int main()
         }
         else
         {
-            cout << num[compare] << "\n";
+            cout << num[1] << "\n";
         }
     }
 
