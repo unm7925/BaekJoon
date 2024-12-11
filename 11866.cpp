@@ -7,48 +7,51 @@ int main()
     ios::sync_with_stdio(0);
     cin.tie(0);
 
-    int n;
-    int s;
-    int count = 1;
-    int clear = 0;
-    int j = 0;
+    // 요세푸스 수열
+    // 제거되는 순번이 차례대로 출력
 
-    cin >> n >> s;
+    int n, k;
 
-    int *array = new int(n);
+    cin >> n >> k;
 
-    for (int i = 0; i < n; i++)
+    int count = 0;
+    int care = 0;
+    int array[1001] = {0};
+
+    for (int i = 1; i <= n; i++)
     {
-        array[i] = 1;
+        array[i] = i;
     }
 
     cout << "<";
-    while (true)
+    for (int i = 1; i <= n; i++)
     {
-        if (j > n - clear)
+        if (array[i] != 0)
         {
-            j = n - clear - j - 1;
+            count++;
+            if (count == k)
+            {
+                cout << i;
+                array[i] = 0;
+                count = 0;
+                care++;
+                if (care == n)
+                {
+                    break;
+                }
+                else
+                {
+                    cout << ", ";
+                }
+            }
         }
-        if (count == 3 && array[j] != 0)
-        {
-            clear++;
-            array[j] = 0;
-            cout << j + 1;
-            count = 0;
 
-            if (clear == n)
-            {
-                cout << ">";
-                break;
-            }
-            else
-            {
-                cout << ", ";
-            }
+        if (i + 1 > n)
+        {
+            i = 0;
         }
-        j++;
-        count++;
     }
+    cout << ">";
 
     return 0;
 }
