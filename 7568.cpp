@@ -8,6 +8,7 @@ int main()
     cin.tie(0);
 
     deque<pair<int, int>> deq;
+    deque<int> deq_grade;
 
     int kg, cm, t;
 
@@ -25,6 +26,20 @@ int main()
         cin >> kg >> cm;
 
         deq.push_back({kg, cm});
+        deq_grade.push_back(1);
+    }
+
+    for (int i = 0; i < deq.size(); i++)
+    {
+        for (int j = 0; j < deq.size(); j++)
+        {
+            if (deq[i].first < deq[j].first && deq[i].second < deq[j].second)
+            {
+                deq_grade[i]++;
+            }
+        }
+
+        cout << deq_grade[i] << " ";
     }
 
     return 0;
