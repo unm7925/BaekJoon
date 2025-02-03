@@ -7,30 +7,30 @@ int main()
     ios::sync_with_stdio(0);
     cin.tie(0);
 
-    int m, n;
+    int t;
 
-    cin >> m >> n;
+    cin >> t;
 
-    int arr[1000001] = {0};
-    for (int i = 2; i <= n; i++)
+    string n;
+
+    int number = 665;
+    while (true)
     {
-        arr[i] = i;
-    }
 
-    for (int i = 2; i * i <= n; i++)
-    {
-        if (arr[i] == 0)
-            continue;
-        for (int j = i * i; j <= n; j += i)
+        number++;
+
+        n = to_string(number);
+
+        if (n.find("666") != string::npos)
         {
-            arr[j] = 0;
-        }
-    }
-    for (int i = m; i <= n; i++)
-    {
-        if (arr[i] != 0)
-        {
-            cout << arr[i] << " ";
+            t--;
+
+            if (t == 0)
+            {
+                cout << n;
+
+                break;
+            }
         }
     }
 
