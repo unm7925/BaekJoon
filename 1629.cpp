@@ -3,7 +3,7 @@
 using namespace std;
 int number, ms, ss;
 
-long long powN(int n, long long m, int s)
+long long powN(long long m)
 {
     // 우린 모든 수를 나열해서 할 것 임 범위를 위해 =>
     // (a+b) % c = (a%c + b%c) %c 라고 함 근데 이건 무한 츠쿠요미 아니냐?
@@ -12,16 +12,16 @@ long long powN(int n, long long m, int s)
 
     if (m == 1)
     {
-        return n % s;
+        return number % ss;
     }
     else if (m == 0)
     {
         return 1;
     }
-    long long i = powN(n, m / 2, s) % s;
+    long long i = powN(m / 2) % ss;
     if (m % 2 == 0)
-        return i * i % s;
-    return i * i % s * n % s;
+        return i * i % ss;
+    return i * i % ss * number % ss;
 }
 
 int main()
@@ -31,7 +31,7 @@ int main()
 
     cin >> number >> ms >> ss;
 
-    cout << powN(number, ms, ss);
+    cout << powN(ms);
 
     return 0;
 }
