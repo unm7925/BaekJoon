@@ -8,6 +8,16 @@
             "program": "${fileDirname}/${fileBasenameNoExtension}",
             "args": [],
             "cwd": "${fileDirname}"
+        },
+        {
+            "type": "cppvsdbg",
+            "request": "launch",
+            "name": "Debug (Windows MSVC)",
+            "program": "${workspaceFolder}\\build\\${fileBasenameNoExtension}.exe",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "preLaunchTask": "MSVC: build active file"
         }
     ]
 }
